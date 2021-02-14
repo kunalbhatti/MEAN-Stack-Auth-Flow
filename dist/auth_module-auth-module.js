@@ -616,7 +616,7 @@ class ActivateComponent {
                 },
                 [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].email]
             ],
-            recaptcha: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]
+            recaptcha: [''] //, Validators.required
         });
         this.showForm = true; // show form to send link. 
         this.sent = false; // set to true after the email has been sent to the email.
@@ -638,7 +638,7 @@ class ActivateComponent {
                 },
                 [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].email]
             ],
-            recaptcha: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]
+            recaptcha: [''] //, Validators.required 
         });
         this.resendForm.patchValue({
             email: this.email
@@ -801,7 +801,7 @@ class RegisterComponent {
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].email]],
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].maxLength(12)]],
             confirmPassword: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].maxLength(12)]],
-            recaptcha: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]
+            recaptcha: [''] //,  Validators.required
         }, {
             validators: _directives_checkPassword_directive__WEBPACK_IMPORTED_MODULE_2__["checkPasswordValidator"] // validates if the password and confirm password are same.
         });
@@ -1137,7 +1137,7 @@ class GetLinkComponent {
         this.authService = authService;
         this.resetPasswordForm = this.fb.group({
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].email]],
-            recaptcha: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]
+            recaptcha: [''] //, Validators.required
         });
     }
     ngOnInit() {
