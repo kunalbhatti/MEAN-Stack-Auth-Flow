@@ -10,8 +10,8 @@ const BasicUtil = require('../util/basic.util');
 const validateRecaptcha = require('./../middlewares/validateRecaptcha');
 const validateToken = require('./../middlewares/validateToken');
 
-const serverUrlPrefix = 'http://localhost:8080/';
-const clientUrlPrefix = 'http://localhost:4200/';
+const serverUrlPrefix = '';
+const clientUrlPrefix = 'https://vast-brushlands-73274.herokuapp.com/';
 const errorCode = require('./../responses/http.codes');
 
 router.post('/register', (req, res) => {
