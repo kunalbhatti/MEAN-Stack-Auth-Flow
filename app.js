@@ -14,10 +14,17 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/dist'));
 
 app.use('/auth', authController);
 app.use('/social-auth', socialAuthController);
 app.use('/grocery', groceryController);
+
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 
 mongoConnect(()=>{
     app.listen(port, ()=>{
