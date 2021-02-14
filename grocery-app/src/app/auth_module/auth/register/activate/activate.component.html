@@ -2,8 +2,11 @@
   <div class="text-center col-11 col-md-8 col-lg-6 col-xl-4 reg-box">
 
     <div class="row text-light justify-content-center align-content-center" style="background-color: #272b2e;">
-      <div class="col-12 my-2">
-        Grocery Manager
+      <div class="col-12 my-2" *ngIf="created">
+        Account Created
+      </div>
+      <div class="col-12 my-2" *ngIf="!created">
+        Activation Link
       </div>
     </div>
 

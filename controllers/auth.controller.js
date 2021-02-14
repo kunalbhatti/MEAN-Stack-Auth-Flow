@@ -10,7 +10,7 @@ const BasicUtil = require('../util/basic.util');
 const validateRecaptcha = require('./../middlewares/validateRecaptcha');
 const validateToken = require('./../middlewares/validateToken');
 
-const serverUrlPrefix = '';
+const serverUrlPrefix = 'https://vast-brushlands-73274.herokuapp.com/';
 const clientUrlPrefix = 'https://vast-brushlands-73274.herokuapp.com/';
 const errorCode = require('./../responses/http.codes');
 
