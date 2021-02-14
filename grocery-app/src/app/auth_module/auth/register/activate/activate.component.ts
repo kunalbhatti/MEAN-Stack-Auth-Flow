@@ -50,7 +50,7 @@ export class ActivateComponent implements OnInit, OnChanges, OnDestroy {
       },
       [Validators.required, Validators.email]
     ],
-    recaptcha: [''] //, Validators.required
+    recaptcha: ['', Validators.required]
   });
 
   showForm = true; // show form to send link. 
@@ -83,7 +83,7 @@ export class ActivateComponent implements OnInit, OnChanges, OnDestroy {
         },
         [Validators.required, Validators.email]
       ],
-      recaptcha: [''] //, Validators.required
+      recaptcha: ['', Validators.required] 
     });
     this.resendForm.patchValue({
       email: this.email
