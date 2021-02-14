@@ -31,7 +31,7 @@ export class GetLinkComponent implements OnInit, OnDestroy {
 
   resetPasswordForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    recaptcha: [''] //, Validators.required
+    recaptcha: ['', Validators.required]
   });
 
   errorMessage: string;

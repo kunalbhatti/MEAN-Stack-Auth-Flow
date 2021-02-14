@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
     confirmPassword: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
-    recaptcha: [''] //,  Validators.required
+    recaptcha: ['',  Validators.required]
   }, {
     validators: checkPasswordValidator // validates if the password and confirm password are same.
   });
