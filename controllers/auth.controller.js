@@ -57,7 +57,8 @@ router.post('/login', (req, res) => {
     }).then(
         user => {
             // user provided correct credentials
-            if (user) {
+            if (user.activated) {
+                
                 BasicUtil.compareHashToPassword(user.password, password, (err, valid) => {
                     if (err) {
                         console.log(err);
