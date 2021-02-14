@@ -1,0 +1,57 @@
+<div class="row align-content-center justify-content-center bg-gradient h-100">
+  <div class="text-center col-11 col-md-8 col-lg-6 col-xl-4 reg-box">
+
+    <div class="row text-light justify-content-center align-content-center" style="background-color: #272b2e;">
+      <div class="col-12 my-2">
+        Grocery Manager
+      </div>
+    </div>
+
+    <!-- Form to get the reset link -->
+    <div class="row justify-content-center align-content-center reg-box text-light my-2" *ngIf="!sent">
+
+      <div class="col-12">
+
+        <form class="form-row justify-content-center" [formGroup]="resetPasswordForm" (ngSubmit)="onSubmit()">
+          <label for="email" class="text-warning col-12 text-center">Registered Email</label>
+          <input type="text" class="form-control col-8" id="email" name="email" aria-describedby="email"
+            placeholder="Email" formControlName="email">
+          <div class="form-group col-11 col-sm-8 d-flex justify-content-center mt-4 mb-3">
+            <re-captcha (resolved)="resolved($event)" [siteKey]="siteKey"></re-captcha>
+          </div>
+
+          <div class="col-12 small text-danger" *ngIf="errorMessage"
+            [ngClass]="{'text-danger': !sent, 'text-success': sent}">
+            *{{errorMessage}}
+          </div>
+
+          <div class="col-12 text-center my-3">
+            <button type="submit" class="btn btn-primary" [disabled]="resetPasswordForm.invalid">Send</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- Displayed if the request has been made successfully -->
+    <div class="row justify-content-center align-content-center reg-box text-light my-2" *ngIf="sent">
+      <div class="col-12">
+        {{errorMessage}} <!--errorMessage is acting as a normal message. Used this to avoid using another variable-->
+      </div>
+      <div class="col-12 border-top my-2">
+        <div class="col-12 pt-1" (click)="showForm = false; sent= false; errorMessage = ''">
+          <small class="text-warning">Did not receive email?
+            <span class="btn-link pointer" [ngClass]="{'text-danger': showForm, 'text-info': !showForm}">
+              {{showForm ? 'Cancel [x]' : 'Send Again'}}
+            </span>
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center" style="background-color: #272b2e;">
+      <button class="btn text-info" [routerLink]="['/', 'auth', 'login']"><small>Login</small></button>
+      <button class="btn text-info" [routerLink]="['/', 'auth', 'register']"><small>Register</small></button>
+    </div>
+  </div>
+</div>

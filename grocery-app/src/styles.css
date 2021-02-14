@@ -1,0 +1,14 @@
+.pointer {
+  cursor: pointer;
+}
+
+/* Bacground color of the app */
+.bg-gradient {
+  background-color: #555f63;
+  background: radial-gradient(circle, #555f63 0%, #0d0f11 92%);
+}
+
+/* Background color of all the auth divs */
+.reg-box {
+  background-color: #16191B;
+}

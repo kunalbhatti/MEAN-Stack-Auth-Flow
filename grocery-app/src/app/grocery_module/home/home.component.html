@@ -1,0 +1,53 @@
+<div class="row text-light h-100">
+  <div class="col-4 col-sm-3 col-md-1 h-100 border-right">
+    <div class="row border-bottom" style="height: 15%;">
+      <div class="col-12 d-flex align-items-end justify-content-center">
+        <img [src]="user.photoUrl" class="image-fluid rounded-circle" style="max-width: 40px;"
+          alt="Image could not be loaded" *ngIf="user.photoUrl">
+      </div>
+      <div class="col-12 text-center">
+        {{user.name|titlecase}}
+      </div>
+    </div>
+    <div class="row pointer" style="height: 85%;">
+      <div class="col-12 align-items-center d-flex justify-content-center option" style="height: 25%;"
+        data-toggle="tooltip" data-placement="top" title="WishList">
+        <img src="./../../../assets/shopping-bag.png" alt="">
+      </div>
+      <div class="col-12 align-items-center d-flex justify-content-center option" style="height: 25%;"
+        data-toggle="tooltip" data-placement="top" title="Inventory">
+        <img src="./../../../assets/inventory.png" alt="">
+      </div>
+      <div class="col-12 align-items-center d-flex justify-content-center option" style="height: 25%;"
+        data-toggle="tooltip" data-placement="top" title="Settings">
+        <img src="./../../../assets/settings.png" alt="">
+      </div>
+      <div class="col-12 align-items-center d-flex justify-content-center option" style="height: 25%;"
+        data-toggle="tooltip" data-placement="top" title="Logout" data-toggle="modal" data-target="#logoutModal">
+        <img src="./../../../assets/logout.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="col-8 col-sm-9 col-md-11">
+  </div>
+</div>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content bg-dark">
+        <div class="modal-header">
+          <h5 class="modal-title text-light" id="logoutModal">Logout</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-dark text-light">
+         Do you wish to log out?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModalBtn">Close</button>
+          <button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>

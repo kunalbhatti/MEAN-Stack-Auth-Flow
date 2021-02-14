@@ -1,0 +1,65 @@
+<div class="row align-content-center justify-content-center bg-gradient h-100 overflow-auto">
+  <div class="col-11 col-md-8 col-lg-6 col-xl-4 text-center reg-box">
+    <div class="row text-light justify-content-center align-content-center" style="background-color: #272b2e;">
+      <div class="col-12 my-2">
+        Grocery Manager
+      </div>
+    </div>
+    <div class="row justify-content-center align-content-around mt-2">
+
+      <form class="form-row justify-content-center" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="form-group col-11 col-sm-8">
+          <label for="name" class="text-warning">Name</label>
+          <div class="small text-info" *ngIf="displayNameInfo">Name can to be 3-15 charecters long.</div>
+          <input type="text" class="form-control" id="name" name="name" aria-describedby="fullName"
+            placeholder="Full Name" formControlName="name" required minlength="3" maxlength='50'
+            (focus)="displayNameInfo = true" (blur)="displayNameInfo = false;">
+        </div>
+
+        <div class="form-group col-11 col-sm-8">
+          <label for="email" class="text-warning">Email</label>
+          <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email Id"
+            formControlName="email" email required>
+        </div>
+
+        <div class="form-group col-11 col-sm-8">
+          <label for="password1" class="text-warning">Password</label>
+          <div class="small text-info" *ngIf="displayPasswordInfo">Password can to be 6-12 charecters long.</div>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+            formControlName="password" required minlength="6" maxlength="12" (focus)="displayPasswordInfo = true"
+            (blur)="displayPasswordInfo = false;">
+        </div>
+
+        <div class="form-group col-11 col-sm-8">
+          <label for="exampleInputPassword1" class="text-warning">Confirm Password</label>
+          <input type="password" class="form-control" name="confirm_password" id="confirm_password"
+            placeholder="Confirm Password" formControlName="confirmPassword" required minlength="6" maxlength="12">
+          <div class="small text-danger" *ngIf="registrationForm.errors?.invalidPassword">
+            *Passwords do not match
+          </div>
+        </div>
+
+        <div class="form-group col-11 col-sm-8 d-flex justify-content-center mt-4 mb-2">
+          <re-captcha (resolved)="resolved($event)" [siteKey]="siteKey"></re-captcha>
+        </div>
+
+        <div class="col-11 mb-2 small text-danger" *ngIf="errorMessage">
+          *{{errorMessage}}
+        </div>
+
+        <div class="col-11"></div>
+        <button type="submit" class="btn btn-primary"
+          [disabled]="!((registrationForm.valid && !registrationForm.errors?.invalidPassword) && (registrationForm.touched && registrationForm.dirty))">Register</button>
+      </form>
+      <div class="col-12 text-right">
+        <button class="btn text-warning" [routerLink]="['/', 'auth', 'get-activation-link']"><small>Lost
+            Activation Link ?</small></button>
+      </div>
+    </div>
+    <div class="row justify-content-center" style="background-color: #272b2e;">
+      <button class="btn text-info" [routerLink]="['/', 'auth', 'login']"><small>Login</small></button>
+      <button class="btn text-info" [routerLink]="['/', 'auth', 'reset-password', 'get-link']"><small>Forgot Password?</small></button>
+    </div>
+
+  </div>
+</div>
